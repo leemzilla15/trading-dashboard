@@ -1,0 +1,47 @@
+# render.yaml
+#
+# Render Blueprint — deploys the backend as a Web Service.
+# Commit this file to your repo root and connect it in the Render dashboard.
+# Render will auto-deploy on every push to `main`.
+#
+# Docs: https://render.com/docs/blueprint-spec
+
+services:
+  - type: web
+    name: apex-trading-api
+    runtime: node
+    region: oregon           # us-west-2 — change to 'frankfurt' for EU
+    plan: free               # free tier: 750 hrs/month, sleeps after 15min inactivity
+                             # upgrade to 'starter' ($7/mo) for always-on + no sleep
+
+    # ── Build ───────────────────────────────────────────────────────────────
+    buildCommand: npm install
+    startCommand: npm start
+
+    # ── Health check ────────────────────────────────────────────────────────
+    # Render pings this before marking deploy as healthy.
+    # Replaces the old unhealthy instance only after this returns 200.
+    healthCheckPath: /api/health
+
+    # ── Environment variables ────────────────────────────────────────────────
+    # Set SECRET values in the Render dashboard, not here.
+    # Only non-secret config goes in this file.
+    envVars:
+      - key:   NODE_ENV
+        value: production
+
+      - key:   PORT
+        value: 3000
+
+      - key:   LOG_LEVEL
+        value: info
+
+      # Comma-separated list of frontend origins allowed by CORS.
+      # Replace with your actual Vercel/Netlify URL after first deploy.
+      - key:   ALLOWED_ORIGINS
+        value: https://your-frontend.vercel.app,https://your-frontend.netlify.app
+
+      # Optional API keys — set these as SECRET in the Render dashboard UI
+      # (not here, so they don't appear in your git history)
+      # TWELVE_DATA_KEY  → set in dashboard
+      # FRED_API_KEY     → set in dashboard
