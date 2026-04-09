@@ -4,7 +4,7 @@
   "description": "Live trading dashboard — Node/Express backend",
   "main": "server/index.js",
   "engines": {
-    "node": ">=18.0.0"
+    "node": "≥20.0.0"
   },
   "scripts": {
     "start": "node server/index.js",
@@ -22,7 +22,7 @@
     "morgan": "^1.10.0",
     "winston": "^3.11.0",
     "xml2js": "^0.6.2",
-    "yahoo-finance2": "^2.11.0"
+    "yahoo-finance2": "^2.13.0"
   },
   "devDependencies": {
     "nodemon": "^3.0.2"
