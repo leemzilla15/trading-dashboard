@@ -3,7 +3,7 @@
   "rewrites": [
     {
       "source": "/api/:path*",
-      "destination": "https://apex-trading-api.onrender.com/api/:path*"
+      "destination": "https://github.com/leemzilla15/trading-dashboard"
     }
   ],
   "headers": [
