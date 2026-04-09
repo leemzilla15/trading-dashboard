@@ -11,10 +11,11 @@
  *   ^VIX  — CBOE Volatility Index
  */
 
-const yf = require('yahoo-finance2').default;
+const yf = require('yahoo-finance2');
+const yfdefault = yf.default || yf;
 
 // Suppress yahoo-finance2 validation warnings in console
-yf.setGlobalConfig({ validation: { logErrors: false } });
+yfDefault.setGlobalConfig({ validation: { logErrors: false } });
 
 const FUTURES_SYMBOLS = { ES: 'ES=F', NQ: 'NQ=F', YM: 'YM=F' };
 const VIX_SYMBOL = '^VIX';
@@ -62,7 +63,7 @@ async function getFuturesQuotes() {
   const keys    = Object.keys(FUTURES_SYMBOLS);
 
   // Promise.allSettled so one bad symbol doesn't kill the whole request
-  const results = await Promise.allSettled(symbols.map(s => yf.quote(s)));
+  const results = await Promise.allSettled(symbols.map(s => yfDefault.quote(s)));
 
   const futures = {};
   results.forEach((result, i) => {
@@ -86,7 +87,7 @@ async function getFuturesQuotes() {
  * Fetch VIX quote.
  */
 async function getVIX() {
-  const raw = await yf.quote(VIX_SYMBOL);
+  const raw = await yfDefault.quote(VIX_SYMBOL);
   const price = fmt(raw.regularMarketPrice);
   return {
     symbol: 'VIX',
