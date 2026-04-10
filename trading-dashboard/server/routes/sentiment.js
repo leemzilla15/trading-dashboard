@@ -31,7 +31,7 @@ const router  = express.Router();
 
 const cache            = require('../cache');
 const fetchWithFallback = require('../services/fetchWithFallback');
-const { getFuturesQuotes, getVIX, getOvernightLevels } = require('../services/yahooFinance');
+const { getFuturesQuotes, getVIX, getOvernightLevels } = require('../services/finnhub');
 const { getHighImpactNews }  = require('../services/forexFactory');
 const { calculateSentiment } = require('../engines/sentimentEngine');
 const { calculateRating }    = require('../engines/ratingEngine');
