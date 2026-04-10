@@ -19,7 +19,7 @@
 
 const express          = require('express');
 const router           = express.Router();
-const { getVIX }       = require('../services/yahooFinance');
+const { getVIX }       = require('../services/finnhub');
 const fetchWithFallback = require('../services/fetchWithFallback');
 const cache             = require('../cache');
 
