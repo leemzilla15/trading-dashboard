@@ -1,7 +1,7 @@
 const axios = require('axios');
 const KEY = process.env.FINHUB-API-KEY;
 const BASE = 'https://finnhub.io/api/v1';
-async fuction get1HCandles(symbol) {
+async function get1HCandles(symbol) {
 return[];
 }
 async function get15MCandles(symbols) {
