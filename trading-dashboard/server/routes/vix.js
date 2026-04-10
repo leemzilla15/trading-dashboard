@@ -1,16 +1,16 @@
 const express = require('express');
 const router = express.Router();
-const { getFuturesQuotes } = require('../services/finnhub');
+const { getVIX } = require('../services/finnhub');
 const fetchWithFallback = require('../services/fetchWithFallback');
 const cache = require('../cache');
 
-const CACHE_KEY = 'futures';
+const CACHE_KEY = 'vix';
 const TTL_MS = 30_000;
 
 router.get('/', async (_req, res) => {
   try {
     const result = await fetchWithFallback(
-      () => getFuturesQuotes(),
+      () => getVIX(),
       null,
       CACHE_KEY,
       cache,
@@ -25,7 +25,7 @@ router.get('/', async (_req, res) => {
       data,
     });
   } catch (err) {
-    return res.status(503).json({ success: false, error: 'Futures data unavailable', message: err.message });
+    return res.status(503).json({ success: false, error: 'VIX data unavailable', message: err.message });
   }
 });
 
