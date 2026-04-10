@@ -44,7 +44,7 @@ const fetchWithFallback    = require('../services/fetchWithFallback');
 const { get1HCandles, get15MCandles } = require('../services/priceHistory');
 const { determineBias }    = require('../engines/biasEngine');
 const { scoreTradingDay }  = require('../engines/tradingDayEngine');
-const { getVIX }           = require('../services/yahooFinance');
+const { getVIX }           = require('../services/finnhub');
 const { getHighImpactNews } = require('../services/forexFactory');
 
 const CACHE_KEY = 'analysis';
