@@ -18,7 +18,7 @@
 
 const express           = require('express');
 const router            = express.Router();
-const { getFuturesQuotes } = require('../services/yahooFinance');
+const { getFuturesQuotes } = require('../services/finnhub');
 const fetchWithFallback  = require('../services/fetchWithFallback');
 const cache              = require('../cache');
 
