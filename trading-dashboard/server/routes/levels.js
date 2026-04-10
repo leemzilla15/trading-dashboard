@@ -24,7 +24,7 @@
 
 const express                 = require('express');
 const router                  = express.Router();
-const { getOvernightLevels }  = require('../services/yahooFinance');
+const { getOvernightLevels }  = require('../services/finnhub');
 const fetchWithFallback        = require('../services/fetchWithFallback');
 const cache                    = require('../cache');
 
