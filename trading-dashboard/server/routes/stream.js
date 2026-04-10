@@ -33,7 +33,7 @@ const router  = express.Router();
 const logger  = require('../logger');
 const cache   = require('../cache');
 
-const { getFuturesQuotes, getVIX, getOvernightLevels } = require('../services/yahooFinance');
+const { getFuturesQuotes, getVIX, getOvernightLevels } = require('../services/finnhub');
 const { getHighImpactNews }   = require('../services/forexFactory');
 const { calculateSentiment }  = require('../engines/sentimentEngine');
 const { calculateRating }     = require('../engines/ratingEngine');
