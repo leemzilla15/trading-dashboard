@@ -1,5 +1,4 @@
-
-  const axios = require(‘axios’);
+const axios = require(‘axios’);
 const KEY = process.env.FINNHUB_API_KEY || ‘d7c3dk1r01quh9fcctv0d7c3dk1r01quh9fcctvg’;
 const BASE = ‘https://finnhub.io/api/v1’;
 
